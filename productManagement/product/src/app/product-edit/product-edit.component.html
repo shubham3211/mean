@@ -1,0 +1,70 @@
+<form  [formGroup]="productEdit" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="pid">Pid</label>
+    <input 
+      type="text"
+      class="form-control"
+      formControlName="pid"
+      [ngClass]="{ 'is-invalid': productEdit.controls.pid.errors && productEdit.controls.pid.touched,
+                   'is-valid': !productEdit.controls.pid.errors && productEdit.controls.pid.touched}"  
+    >
+    <div class="invalid-feedback" *ngIf="productEdit.controls.pid.errors 
+                                        && productEdit.controls.pid.errors.required
+                                        && productEdit.controls.pid.touched ">
+      Required
+    </div>
+    <div class="invalid-feedback" *ngIf="productEdit.controls.pid.errors
+                                        && productEdit.controls.pid.errors['Invalid Number']
+                                        && productEdit.controls.pid.touched">
+      Invalid Number
+    </div>
+  </div>
+  <div class="from-group">
+    <label for="pname">Product Name</label>
+    <input 
+      type="text"
+      class="form-control"
+      formControlName="pname"
+      [ngClass]="{ 'is-invalid': productEdit.controls.pname.errors && productEdit.controls.pname.touched,
+                  'is-valid': !productEdit.controls.pname.errors && productEdit.controls.pname.touched}"  
+    >
+    <div class="invalid-feedback" *ngIf="productEdit.controls.pname.errors 
+                                        && productEdit.controls.pname.touched
+                                        && productEdit.controls.pname.errors.required">
+      Required
+    </div>
+    <div class="invalid-feedback" *ngIf="productEdit.controls.pname.errors
+                                        && productEdit.controls.pname.touched
+                                        && productEdit.controls.pname.errors.maxlength">
+      MaxLength Exceeded
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="pprice">Product Price</label>
+    <input
+     type="text" 
+     class="form-control" 
+     formControlName="pprice"
+     [ngClass]="{'is-invalid': productEdit.controls.pprice.errors && productEdit.controls.pprice.touched,
+                'is-valid': !productEdit.controls.pprice.errors && productEdit.controls.pprice.touched}" 
+    >
+    <div class="invalid-feedback" *ngIf="productEdit.controls.pprice.errors
+                                        && productEdit.controls.pprice.errors.required
+                                        && productEdit.controls.pprice.touched">
+      Required
+    </div>
+    <div class="invalid-feedback" *ngIf="productEdit.controls.pprice.errors
+                                        && productEdit.controls.pprice.errors['invalid-length']
+                                        && productEdit.controls.pprice.touched">
+      Invalid Length
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<div class="row">
+  <div class="col-12">
+    <h1 class="bg-warning">
+      {{message}}
+    </h1>
+  </div>
+</div>

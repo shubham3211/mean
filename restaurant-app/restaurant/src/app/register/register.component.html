@@ -1,0 +1,17 @@
+<!-- todo validation and design -->
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="register" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" formControlName="username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" formControlName="password">
+      </div>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+    <h1 class="bg-warning text-light">{{message}}</h1>
+  </div>
+</div>
